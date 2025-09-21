@@ -1,0 +1,30 @@
+version: policy@notebook
+thresholds:
+  tau_low: 0.45
+  tau_high: 0.7
+rules:
+  explicit_human_request:
+    enabled: true
+    patterns:
+    - \b(human|agent|real person|talk to (?:a )?human|speak to (?:a )?human|customer
+      service|support agent)\b
+  risk_terms:
+    enabled: true
+    patterns:
+    - kyc
+    - blocked
+    - chargeback
+    - legal
+    - id verification
+  bot_unhelpful_templates:
+    enabled: true
+    patterns:
+    - could you provide more details
+    - we could not find the information
+    - check your spam folder
+    - ensure your documents are clear and valid
+llm:
+  enabled: false
+  max_latency_ms: 400
+redis:
+  ttl_seconds: 86400

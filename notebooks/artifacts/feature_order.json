@@ -1,0 +1,11 @@
+[
+  "turn_idx",
+  "user_caps_ratio",
+  "exclam_count",
+  "msg_len",
+  "bot_unhelpful",
+  "user_requests_human",
+  "risk_terms",
+  "no_progress_count",
+  "bot_repeat_count"
+]

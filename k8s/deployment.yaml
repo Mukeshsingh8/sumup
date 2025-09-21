@@ -1,0 +1,196 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: escalation-api
+  labels:
+    app: escalation-api
+    version: v1.0.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: escalation-api
+  template:
+    metadata:
+      labels:
+        app: escalation-api
+        version: v1.0.0
+    spec:
+      containers:
+      - name: escalation-api
+        image: sumup/escalation-detector:latest
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: ARTIFACTS_DIR
+          value: "/app/artifacts"
+        - name: PORT
+          value: "8080"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: REDIS_URL
+          value: "redis://redis-service:6379"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: artifacts
+          mountPath: /app/artifacts
+          readOnly: true
+      volumes:
+      - name: artifacts
+        configMap:
+          name: escalation-artifacts
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: escalation-service
+  labels:
+    app: escalation-api
+spec:
+  selector:
+    app: escalation-api
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+    protocol: TCP
+  type: ClusterIP
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: escalation-artifacts
+data:
+  model.joblib: |
+    # Base64 encoded model file would go here
+  feature_order.json: |
+    ["turn_idx", "user_caps_ratio", "exclam_count", "msg_len", "bot_unhelpful", "user_requests_human", "risk_terms", "no_progress_count", "bot_repeat_count"]
+  policy.yaml: |
+    version: "policy@k8s"
+    thresholds:
+      tau_low: 0.45
+      tau_high: 0.70
+    guards:
+      min_turn_before_model: 1
+    rules:
+      explicit_human_request:
+        enabled: true
+        patterns:
+          - "\\b(human|agent|real person|talk to (?:a )?human|speak to (?:a )?human|customer service|support agent)\\b"
+      risk_terms:
+        enabled: true
+        patterns: ["kyc","blocked","chargeback","legal","id verification"]
+      bot_unhelpful_templates:
+        enabled: true
+        patterns:
+          - "could you provide more details"
+          - "we could not find the information"
+          - "check your spam folder"
+          - "ensure your documents are clear and valid"
+  version.txt: |
+    model=logreg@k8s
+    threshold=0.081
+    test_roc_auc=0.9500
+    test_pr_auc=0.8330
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+          name: redis
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: redis-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  labels:
+    app: redis
+spec:
+  selector:
+    app: redis
+  ports:
+  - name: redis
+    port: 6379
+    targetPort: 6379
+    protocol: TCP
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

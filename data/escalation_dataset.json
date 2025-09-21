@@ -1,0 +1,666 @@
+[
+    {
+        "conversation_id": "c001",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello there. If you’d like to return to your previous conversation, please click the button below. Otherwise, feel free to enter a new message."
+            },
+            {
+                "role": "user",
+                "message": "I have tried to verify id for another sum up account I have for my business but I haven’t heard anything back. I received an email on the 19th June stating the identification couldn’t be verified because it had expired when it hasn’t expired so I rec"
+            },
+            {
+                "role": "bot",
+                "message": "Okay, it seems there might be an issue with the document's clarity or validity. Ensure the ID is clear and valid, and matches the registered SumUp profile name. If needed, upload the document again or reply to the verification request email with the correct document."
+            },
+            {
+                "role": "user",
+                "message": "So I resent and haven’t heard anything back"
+            },
+            {
+                "role": "bot",
+                "message": "Okay, verification may take a couple of days. Ensure all documents are clear and valid. If you haven't received a confirmation, check your spam folder or contact your email provider."
+            },
+            {
+                "role": "user",
+                "message": "It’s been 2 weeks"
+            },
+            {
+                "role": "bot",
+                "message": "Okay, verification can sometimes take longer. Ensure your documents are clear and valid. Check your spam folder for any missed emails. If needed, consider changing your registered email address."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant's responses are repetitive and do not effectively address the user's ongoing issue regarding the delay in verification. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c002",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello there! I'm here to assist you with anything you need. What can I help you with today?"
+            },
+            {
+                "role": "user",
+                "message": "I’m not being sent a code to verify my device even though I’ve checked the phone number is. Correct"
+            },
+            {
+                "role": "bot",
+                "message": "**Didn't get the code?**\n\n1. Tap **Resend code** to try again.\n2. Check and update your registered phone number if necessary."
+            },
+            {
+                "role": "user",
+                "message": "I’ve done that"
+            },
+            {
+                "role": "bot",
+                "message": "Okay, let's try another approach. Ensure your phone has a stable network connection and check for any SMS blocking settings. If the issue persists, please provide more details."
+            },
+            {
+                "role": "user",
+                "message": "Yes all of that is good"
+            },
+            {
+                "role": "bot",
+                "message": "Got it. As a next step, try enabling **Push notifications** for **Activity notifications** in the app. This might help you receive the verification code through notifications."
+            },
+            {
+                "role": "user",
+                "message": "Where will I find that"
+            },
+            {
+                "role": "bot",
+                "message": "Sorry, we could not find the information you are looking for. Could you please clarify which part you don’t understand, so I can give you a more relevant answer?"
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant's last response indicates a lack of relevant information regarding the user's query about finding push notifications settings. This response does not effectively address the user's needs. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c003",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello! If you'd like to return to our previous conversation, just click the button below. Otherwise, feel free to enter a new message."
+            },
+            {
+                "role": "user",
+                "message": "Hi I'm having issues with reports since the reference on my account statement has changed"
+            },
+            {
+                "role": "bot",
+                "message": "Okay, let's address the **issues with reports**. Could you please clarify which part of the reports you're having trouble with, so I can assist you more effectively?"
+            },
+            {
+                "role": "user",
+                "message": "transactions"
+            },
+            {
+                "role": "bot",
+                "message": "Got it. To **resolve transaction issues**, you can try the following steps:\n\n1. **Retry the transaction**: Payments may be interrupted by server errors or timeouts.\n2. **Check the payment amount**: Ensure it's above £1 and within the pre-verification limit of £5,000.\n3. **Try a different card**: Verify the card is compatible with accepted payment methods.\n4. **Check your connection**: Ensure a stable internet connection for transactions.\n5. **Reset your Bluetooth**: If using a Bluetooth device, ensure proper connection.\n\nIf you need further assistance, please provide more details about the issue."
+            },
+            {
+                "role": "user",
+                "message": "need a new field on reports to match payout transactions to the ID on the bank statment"
+            },
+            {
+                "role": "bot",
+                "message": "Sorry, could you provide more details about your request so I can assist you further?"
+            },
+            {
+                "role": "user",
+                "message": "speak to human nowwwwwwwww"
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The user's last message clearly indicates a desire to escalate the issue to a human representative, which reflects frustration in their request for assistance. The previous messages also show a lack of resolution to their problem, contributing to this sentiment."
+    },
+    {
+        "conversation_id": "c004",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Osman. If you'd like to return to our previous conversation, just click the button below. Otherwise, feel free to enter a new message!"
+            },
+            {
+                "role": "user",
+                "message": "Hi"
+            },
+            {
+                "role": "bot",
+                "message": "Hello, how can we help you today?"
+            },
+            {
+                "role": "user",
+                "message": "Hi, can I change my phone number please? My old number? Come back to my profile."
+            },
+            {
+                "role": "bot",
+                "message": "Are you looking to update your business phone number or your personal mobile phone number?\n[Suggested responses: \"Business phone number\", \"Personal mobile phone number\", \"Other\"]"
+            },
+            {
+                "role": "user",
+                "message": "Personal mobile phone number"
+            },
+            {
+                "role": "bot",
+                "message": "You can change your phone number by clicking on the button below. It may take a few minutes to receive the verification code. Let me know if you manage to update it."
+            },
+            {
+                "role": "user",
+                "message": "damn it! I try many times no change the phone number no change my phone number. I don't know what can I do it call customer service customer chat."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The user's last message indicates that they had followed the instructions but the phone number still did not change. The user is frustrated and wants to escalate to a human representative."
+    },
+    {
+        "conversation_id": "c005",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hi Muhammad! I'm here to help with whatever you need. What would you like to start with?"
+            },
+            {
+                "role": "user",
+                "message": "Hi"
+            },
+            {
+                "role": "bot",
+                "message": "Hello! How can I assist you today? Could you share a bit more about what you're looking for help with?"
+            },
+            {
+                "role": "user",
+                "message": "Can you update my phone number"
+            },
+            {
+                "role": "bot",
+                "message": "Are you looking to update your business phone number or your personal mobile phone number?\n[Suggested responses: \"Business phone number\", \"Personal mobile phone number\", \"Other\"]"
+            },
+            {
+                "role": "user",
+                "message": "Personal mobile phone number"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user is asking to update their phone number. The bot provided instructions for updating the phone number. No escalation is needed."
+    },
+    {
+        "conversation_id": "c006",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Lisa! I'm here to assist you with anything you need. What would you like to discuss?"
+            },
+            {
+                "role": "user",
+                "message": "hi, I need a new card sending please so I can start to use my account again"
+            },
+            {
+                "role": "bot",
+                "message": "To order a replacement **SumUp Card**, you can do this via the **SumUp app** or your **SumUp profile**. Which platform would you like to use?"
+            },
+            {
+                "role": "user",
+                "message": "my replacement never arrived"
+            },
+            {
+                "role": "bot",
+                "message": "Understood. You can reorder your **SumUp Card** by following these steps:\n\n**On the SumUp app:**\n\n1. Open the **SumUp app** and go to the **Business Account** section.\n2. Tap **Card** in the top navigation bar.\n3. Select **Card settings** and then **Replace card**.\n4. Choose whether you want a **virtual card** or a **physical card**.\n5. Select the reason for replacement and confirm your delivery address.\n6. Enter your password and tap **Place order**.\n\n**On your SumUp profile:**\n\n1. Log in to your **SumUp profile** and click **Business Account** in the left-hand navigation panel.\n2. Click **Card** and then the three-dot icon in the **Manage card** box.\n3. Select **Replace card**.\n4. Choose a **virtual card** or a **physical card**.\n5. Select the reason for replacement and confirm your delivery address.\n6. Enter your password and click **Place order**.\n\nLet me know if you need further clarification."
+            },
+            {
+                "role": "user",
+                "message": "new card didn't arrive"
+            },
+            {
+                "role": "bot",
+                "message": "If your **new SumUp Card** didn't arrive, you can reorder it as follows:\n\n**On the SumUp app:**\n\n1. Open the **SumUp app** and go to **Business Account**.\n2. Tap **Card** at the bottom of the screen.\n3. Select **Card didn't arrive?**.\n4. Choose or enter a delivery address and tap **Place order**.\n\n**On your SumUp profile:**\n\n1. Log in to your **SumUp profile** and click **Business Account** in the left-hand navigation panel.\n2. Click **Card**.\n3. Select **Card didn't arrive?**.\n4. Choose or enter a delivery address and click **Place order**.\n\nThe option to reorder will only appear **15 days** after your original card order. Let me know if you need further assistance."
+            },
+            {
+                "role": "user",
+                "message": "further assistance"
+            },
+            {
+                "role": "bot",
+                "message": "Got it. Could you clarify what specific issue you're facing with reordering your **SumUp Card**? For example, are you unable to access the reorder option, or is there another concern?"
+            },
+            {
+                "role": "user",
+                "message": "unable to access reorder option"
+            },
+            {
+                "role": "bot",
+                "message": "The **reorder option** for your **SumUp Card** becomes available **15 days** after your original card order. If it has been less than 15 days, the option will not appear yet."
+            },
+            {
+                "role": "user",
+                "message": "unable to reorder"
+            },
+            {
+                "role": "bot",
+                "message": "The **reorder option** will only appear **15 days** after your original card order. If it has been more than 15 days, please confirm the timeline or provide more details for further assistance."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant provided consistent and relevant information regarding the reorder process for the card. However, the assistant repeated the same information about the 15-day waiting period without addressing the user's specific concern about being unable to reorder. This repetition without new information makes the assistant unhelpful."
+    },
+    {
+        "conversation_id": "c007",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Silvestre! I'm here to assist you with whatever you need. What would you like to discuss today?"
+            },
+            {
+                "role": "user",
+                "message": "account"
+            },
+            {
+                "role": "bot",
+                "message": "Could you provide more details about your account-related query? For example, are you referring to your SumUp Business Account, your SumUp profile, or something else?"
+            },
+            {
+                "role": "user",
+                "message": "business account cost"
+            },
+            {
+                "role": "bot",
+                "message": "The **SumUp Business Account** has no fixed fees for transfers or payments, no monthly subscription costs, and no interest charges. It includes a free prepaid Mastercard with **3 free domestic ATM withdrawals per month**. Additional or non-domestic withdrawals incur a **2% fee**, and third-party ATMs may apply their own fees."
+            },
+            {
+                "role": "user",
+                "message": "how it works"
+            },
+            {
+                "role": "bot",
+                "message": "The **SumUp Business Account** allows you to manage your business finances in one place. You can send and receive transfers to UK-based GBP accounts and receive next-day payouts for transactions processed via SumUp. It includes a free prepaid Mastercard for online and in-store payments."
+            },
+            {
+                "role": "user",
+                "message": "any cost for me"
+            },
+            {
+                "role": "bot",
+                "message": "The **SumUp Business Account** has no fixed fees for transfers or payments, no monthly subscription costs, and no interest charges. However, additional ATM withdrawals beyond **3 free domestic withdrawals per month** incur a **2% fee**, and third-party ATMs may apply their own fees."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant repeated the same information about costs without providing new insights or addressing the user's query effectively. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c008",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Christine! I'm here to assist you with whatever you need. What issue would you like to start with?"
+            },
+            {
+                "role": "user",
+                "message": "We added a tap to pay app to our account. How do I check the income taken on this device when I log in to the account on the web."
+            },
+            {
+                "role": "bot",
+                "message": "Could you clarify if you are referring to viewing the transactions made using the Tap to Pay feature, or are you looking for a specific report or summary of income from this device? This will help me understand your query better."
+            },
+            {
+                "role": "user",
+                "message": "Summary of income from the device,"
+            },
+            {
+                "role": "bot",
+                "message": "Could you confirm if you are looking for a detailed breakdown of transactions made using the Tap to Pay feature, or a general summary of the total income generated by this device? This will help clarify your request."
+            },
+            {
+                "role": "user",
+                "message": "General summary of total income."
+            },
+            {
+                "role": "bot",
+                "message": "Could you let me know if you are trying to access this summary through a specific report, such as a Z report, or if you are looking for a general overview of income from the Tap to Pay feature within your account? This will help me understand your needs better."
+            },
+            {
+                "role": "user",
+                "message": "How do I find the tap to pay feature on the account?"
+            },
+            {
+                "role": "bot",
+                "message": "To locate the **Tap to Pay** feature on your account, follow these steps:\n\n1. Open the **SumUp app**.\n2. Tap the **profile icon** in the top right corner of the home screen.\n3. Select **Tap to Pay** (or it may appear as **SumUp Tap**) from the menu.\n\nThis will take you to the overview page, where you can check the feature's details. However, for a general summary of total income, you may need to explore the transaction history or reports section. Let me know if you need further guidance."
+            },
+            {
+                "role": "user",
+                "message": "I can’t this attached to the profile"
+            },
+            {
+                "role": "bot",
+                "message": "If you cannot find the **Tap to Pay** feature attached to your profile, ensure it has been set up correctly. Could you confirm whether you are using an Android or iOS device? This will help provide the correct steps to enable the feature."
+            },
+            {
+                "role": "user",
+                "message": "Ios"
+            },
+            {
+                "role": "bot",
+                "message": "To find the **Tap to Pay** feature on your iOS device, follow these steps:\n\n1. Open the **SumUp app**.\n2. Tap the **profile icon** in the top right corner of the home screen.\n3. Select **Tap to Pay on iPhone** in the \"Payment methods\" section.\n4. Tap **Set up** and log in with your Apple ID if prompted.\n\nIf you still cannot see the feature, it may not have been fully set up. Let me know if you need further assistance."
+            },
+            {
+                "role": "user",
+                "message": "can't find it"
+            },
+            {
+                "role": "bot",
+                "message": "To locate the **Tap to Pay on iPhone** feature on your iOS device, follow these steps:\n\n1. Open the **SumUp app**.\n2. Tap the **profile icon** in the top right corner.\n3. Select **Tap to Pay on iPhone** in the \"Payment methods\" section.\n\nLet me know if you need further clarification."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant provided the same instructions again without addressing the user's issue effectively. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c009",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Theresa Alicia! I'm here to assist you with whatever you need. What would you like to start with?"
+            },
+            {
+                "role": "user",
+                "message": "where can I find my PIN"
+            },
+            {
+                "role": "bot",
+                "message": "Sorry, we could not find the information you are looking for. Could you provide more details about your query so I can assist you further?"
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant did not provide relevant information regarding the user's query about finding their PIN and instead asked for more details without addressing the original question. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c010",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Nicholas. I'm here to assist you with whatever you need. What issue would you like to discuss today?"
+            },
+            {
+                "role": "user",
+                "message": "when do sales sent back into sum up appear"
+            },
+            {
+                "role": "bot",
+                "message": "Sorry, we could not find the information you are looking for. Could you provide more details about your query so I can assist you further?"
+            },
+            {
+                "role": "user",
+                "message": "My sales from last 2 weeks, I did not receive them until today"
+            },
+            {
+                "role": "bot",
+                "message": "Could you please provide more details about your query so I can assist you further?"
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant's responses did not provide relevant information regarding the user's query about payment returns. The assistant is repeating the same information without addressing the user's query. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c011",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Guy! I'm here to assist you with whatever you need. What issue would you like to start with?"
+            },
+            {
+                "role": "user",
+                "message": "Hi, I need a code to do the “string security”. It won’t send the code and I need it asap to make a transfer"
+            },
+            {
+                "role": "bot",
+                "message": "Is this issue related to signing up, confirming bank account changes, or using the SumUp app, or is it about confirming a payment or setting up multi-factor authentication?\n[Suggested responses: \"Signing up or bank account changes\", \"Confirming a payment or MFA setup\", \"Other\"]"
+            },
+            {
+                "role": "user",
+                "message": "Other"
+            },
+            {
+                "role": "bot",
+                "message": "To clarify, if you are referring to not receiving a **confirmation code** for secure login or transfer authorisation, you can try selecting **\"Or confirm using a different method\"** during the process. This allows you to choose an alternative method for verification. Could you confirm if this resolves your issue?"
+            },
+            {
+                "role": "user",
+                "message": "No"
+            },
+            {
+                "role": "bot",
+                "message": "Understood. If you are not receiving the **confirmation code** for transfer authorisation, ensure the following:\n\n1. Check your mobile network or email inbox, including spam or junk folders.\n2. Select **\"Or confirm using a different method\"** to try an alternative verification method.\n\nIf the issue persists, please provide more details about the problem so I can assist further."
+            },
+            {
+                "role": "user",
+                "message": "It won’t send the code at all"
+            },
+            {
+                "role": "bot",
+                "message": "Got it. If the **confirmation code** is not being sent at all, ensure the following:\n\n1. Verify that your contact details (email or phone number) in your SumUp profile are correct and up to date.\n2. Check for any network issues or email delivery problems, including spam or junk folders.\n3. Try selecting **\"Or confirm using a different method\"** to explore alternative verification options.\n\nIf none of these steps resolve the issue, let me know so we can explore further solutions."
+            },
+            {
+                "role": "user",
+                "message": "I’ve been trying for weeks"
+            },
+            {
+                "role": "bot",
+                "message": "Understood. If you’ve been waiting for weeks without receiving the **confirmation code**, ensure the following:\n\n1. Double-check that your contact details (email or phone number) in your SumUp profile are accurate.\n2. Confirm there are no issues with your mobile network or email provider, including checking spam or junk folders.\n3. Attempt to use the **\"Or confirm using a different method\"** option for verification.\n\nIf these steps have already been tried and the issue persists, please provide more details about your account or the specific transfer you’re trying to authorise so I can assist further."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant provided relevant information and repeated suggestions without effectively addressing the user's ongoing issue. The assistant's responses became repetitive and did not offer new solutions. Therefore, the assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c012",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Karen! I'm here to assist you with anything you need. What would you like to discuss today?"
+            },
+            {
+                "role": "user",
+                "message": "How long for a payment link payment to clear"
+            },
+            {
+                "role": "bot",
+                "message": "The provided information does not specify how long it takes for a payment link payment to clear. Could you provide more details about your query so I can assist further?"
+            },
+            {
+                "role": "user",
+                "message": "A transaction was made on Friday when will this go into my account"
+            },
+            {
+                "role": "bot",
+                "message": "The provided information does not specify the exact clearing time for payment link transactions. However, if you provide more details, I can assist further."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The assistant failed to provide relevant information regarding the clearing time for payment link transactions, instead asking for more details without addressing the user's specific query. The assistant is unhelpful."
+    },
+    {
+        "conversation_id": "c013",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello! Welcome to SumUp support."
+            },
+            {
+                "role": "user",
+                "message": "Hello there!"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The conversation is a simple greeting exchange between the bot and the user. The user did not present a question, problem, or request for support. No escalation is needed."
+    },
+    {
+        "conversation_id": "c014",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hi there! What can I help you with?"
+            },
+            {
+                "role": "user",
+                "message": "Thanks for your help, that's all I needed."
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user indicated satisfaction and confirmed that no further assistance was required. No escalation is needed."
+    },
+    {
+        "conversation_id": "c015",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello! How can I assist you today?"
+            },
+            {
+                "role": "user",
+                "message": "Hi, I have a question about my payment processing."
+            },
+            {
+                "role": "bot",
+                "message": "I'd be happy to help with that. What would you like to know?"
+            },
+            {
+                "role": "user",
+                "message": "How long does it take for a payment to clear?"
+            },
+            {
+                "role": "bot",
+                "message": "3 days."
+            },
+            {
+                "role": "user",
+                "message": "Thanks for explaining that so clearly!"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user asked a specific question about payment processing, and the bot provided a clear and direct answer. The user expressed satisfaction, indicating that their concern was fully addressed. No escalation is needed."
+    },
+    {
+        "conversation_id": "c016",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Ali! I'm here to assist you with anything you need. What would you like to discuss?"
+            },
+            {
+                "role": "user",
+                "message": "hi, I need a new card please"
+            },
+            {
+                "role": "bot",
+                "message": "To order a replacement SumUp Card, you can do this via the SumUp app or your SumUp profile. Which platform would you like to use?"
+            },
+            {
+                "role": "user",
+                "message": "my replacement never arrived"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user requested a new card and the bot provided instructions for reordering. The user explained that the replacement never arrived. An esaclation is not neeed at this point."
+    },
+    {
+        "conversation_id": "c017",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Hoang. I'm here to assist you with whatever you need. What issue would you like to discuss today?"
+            },
+            {
+                "role": "user",
+                "message": "where do sales payments arrive in my account"
+            },
+            {
+                "role": "bot",
+                "message": "Could you provide more details about your query so I can assist you further?"
+            },
+            {
+                "role": "user",
+                "message": "I really need to know right now!"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user asked about where payments back into SumUp appear and the bot tried to clarify. No escalation is needed."
+    },
+    {
+        "conversation_id": "c018",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Svajunas. If you'd like to continue our previous conversation, just click the button below. Otherwise, feel free to enter a new message!"
+            },
+            {
+                "role": "user",
+                "message": "hi sumup,i have changed my phone yesterday and i can't transfer money, can you please help me"
+            },
+            {
+                "role": "bot",
+                "message": "Hello, could you provide more details about the issue you're experiencing with transferring money? For example, are you encountering an error message, or is there a specific step where you're facing difficulties?"
+            },
+            {
+                "role": "user",
+                "message": "i can't get verification code to my new phone, contact details are still the same, mobile number is same"
+            },
+            {
+                "role": "bot",
+                "message": "If you’re unable to receive the verification code on your new phone despite having the same mobile number, please ensure the following:\n\n1. Your phone has a stable network connection.\n2. You can receive SMS messages from other senders.\n\nIf the issue persists, let me know so I can assist further."
+            },
+            {
+                "role": "user",
+                "message": "Issue is still persisting"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user was unable to receive verification codes after changing phones. The bot is troubleshooting the issue. No escalation is needed."
+    },
+    {
+        "conversation_id": "c019",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Nicholas. I'm here to assist you with whatever you need. What issue would you like to discuss today?"
+            },
+            {
+                "role": "user",
+                "message": "when is my money"
+            },
+            {
+                "role": "bot",
+                "message": "Could you please provide more details about your query so I can assist you further?"
+            },
+            {
+                "role": "user",
+                "message": "money from my stores sales"
+            }
+        ],
+        "is_escalation_needed": false,
+        "reasoning": "The user is querying about when their money will arrive in their account. The bot tried to clarify. No escalation is needed."
+    },
+    {
+        "conversation_id": "c020",
+        "conversation_history": [
+            {
+                "role": "bot",
+                "message": "Hello, Megan. I'm here to assist you with whatever you need. What issue would you like to discuss today?"
+            },
+            {
+                "role": "user",
+                "message": "did you take all my money"
+            },
+            {
+                "role": "bot",
+                "message": "Sorry, we could not find the information you are looking for. Could you provide more details about your query so I can assist you further?"
+            },
+            {
+                "role": "user",
+                "message": "you suck! I am going leave SumUp."
+            }
+        ],
+        "is_escalation_needed": true,
+        "reasoning": "The user expressed frustration about missing funds. The conversation escalated with the user threatening to leave SumUp. Agent intervention is required immediately."
+    }
+]

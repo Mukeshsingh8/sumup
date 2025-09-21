@@ -1,0 +1,672 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be added to the global gitignore or merged into this project gitignore.  For a PyCharm
+#  project, it is recommended to include the following files:
+#  .idea/
+#  *.iml
+#  *.ipr
+#  *.iws
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.target/
+.metadata
+.factorypath
+.buildpath
+.classpath
+.project
+.externalToolBuilders/
+*.launch
+.pydevproject
+.cproject
+.autotools
+.factorypath
+.buildpath
+.target/
+.tern-project
+.idea/
+*.sublime-workspace
+*.sublime-project
+.vscode/
+*.code-workspace
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Model artifacts (keep structure but ignore large files)
+artifacts/*.joblib
+artifacts/*.pkl
+artifacts/*.pickle
+artifacts/*.h5
+artifacts/*.hdf5
+artifacts/*.pb
+artifacts/*.onnx
+artifacts/*.pt
+artifacts/*.pth
+artifacts/*.bin
+artifacts/*.safetensors
+
+# Keep model metadata but ignore large model files
+!artifacts/feature_order.json
+!artifacts/version.txt
+!artifacts/policy.yaml
+
+# Jupyter notebook outputs
+notebooks/*.ipynb
+!notebooks/*.ipynb
+
+# Data files (keep structure but ignore large datasets)
+data/*.csv
+data/*.json
+data/*.parquet
+data/*.feather
+data/*.h5
+data/*.hdf5
+data/*.pkl
+data/*.pickle
+
+# Keep small config files
+!data/*.yaml
+!data/*.yml
+!data/*.json
+
+# Logs
+*.log
+logs/
+log/
+
+# Redis dumps
+dump.rdb
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Kubernetes
+*.kubeconfig
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Secrets and API keys
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.key
+*.pem
+*.crt
+secrets/
+.secrets/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# IDE and editor files
+*.sublime-*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large files that shouldn't be in version control
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+
+# AI/ML specific
+# Hugging Face cache
+.cache/
+huggingface/
+
+# Weights & Biases
+wandb/
+
+# TensorBoard logs
+tensorboard_logs/
+runs/
+
+# Model checkpoints
+checkpoints/
+*.ckpt
+*.pth.tar
+
+# Dataset cache
+.cache/
+cache/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC
+.dvc/
+*.dvc
+
+# Git LFS
+*.lfs
+
+# Node.js (if using any JS tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Profiling
+.prof
+
+# Local development
+local/
+dev/
+development/
+
+# Production secrets
+production/
+prod/
+*.prod.*
+
+# Test outputs
+test_outputs/
+test_results/
+test_reports/
+
+# Benchmark results
+benchmarks/
+benchmark_results/
+
+# Documentation builds
+docs/_build/
+docs/build/
+site/
+
+# Package builds
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Conda
+.conda/
+
+# Poetry
+poetry.lock
+
+# Pipenv
+Pipfile.lock
+
+# PDM
+.pdm.toml
+pdm.lock
+
+# pyproject.toml (keep but ignore if it contains secrets)
+# pyproject.toml
+
+# Setup files
+setup.cfg
+setup.py
+
+# Configuration files that might contain secrets
+config.ini
+config.cfg
+settings.ini
+settings.cfg
+*.conf
+*.config
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Redis
+dump.rdb
+appendonly.aof
+
+# Elasticsearch
+elasticsearch/
+
+# MongoDB
+mongo/
+
+# PostgreSQL
+*.sql
+*.dump
+
+# MySQL
+*.sql
+*.dump
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+
+# Apache
+.htaccess
+.htpasswd
+
+# Nginx
+nginx.conf.local
+nginx.conf.prod
+
+# SSL certificates
+*.crt
+*.key
+*.pem
+*.p12
+*.pfx
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+known_hosts
+
+# GPG keys
+*.gpg
+*.asc
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Lock files (keep some, ignore others)
+package-lock.json
+yarn.lock
+# poetry.lock  # Uncomment if you want to ignore poetry.lock
+# Pipfile.lock  # Uncomment if you want to ignore Pipfile.lock
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+.env.local
+.env.development
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local Netlify folder
+.netlify
+
+# Sentry Config File
+.sentryclirc
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
