@@ -16,7 +16,7 @@ def _try_redis():
     try:
         import redis  # pip install redis
         if os.getenv("REDIS_URL"):
-            r = redis.from_url(os.getenv("REDIS_URL"))
+            r = redis.from_url(os.getenv("REDIS_URL"), decode_responses=True)
         else:
             r = redis.Redis(host=os.getenv("REDIS_HOST","localhost"),
                             port=int(os.getenv("REDIS_PORT","6379")),
@@ -34,6 +34,8 @@ class ConvState:
       - prev_bot_text
       - no_progress_count
       - bot_repeat_count
+      - ema_score
+      - consecutive_high
     """
     def __init__(self, ttl_seconds: int = 86400):
         self.ttl = ttl_seconds
@@ -49,12 +51,14 @@ class ConvState:
             data = self.rdb.hgetall(key) or {}
         else:
             data = self.mem.hgetall(key)
-        # coerce types
+        # coerce types and provide defaults
         return {
             "user_turn_idx": int(data.get("user_turn_idx", 0)),
             "prev_bot_text": data.get("prev_bot_text", ""),
             "no_progress_count": float(data.get("no_progress_count", 0.0)),
             "bot_repeat_count": float(data.get("bot_repeat_count", 0.0)),
+            "ema_score": float(data.get("ema_score", 0.0)),
+            "consecutive_high": int(data.get("consecutive_high", 0)),
         }
 
     def save(self, conversation_id: str, state: Dict[str, Any]):
@@ -64,6 +68,8 @@ class ConvState:
             "prev_bot_text": state.get("prev_bot_text", ""),
             "no_progress_count": float(state.get("no_progress_count", 0.0)),
             "bot_repeat_count": float(state.get("bot_repeat_count", 0.0)),
+            "ema_score": float(state.get("ema_score", 0.0)),
+            "consecutive_high": int(state.get("consecutive_high", 0)),
             "updated_at": int(time.time()),
         }
         if self.rdb:

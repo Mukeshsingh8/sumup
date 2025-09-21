@@ -37,7 +37,7 @@ except ImportError:
 # Add parent directory to Python path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-ART = "artifacts"
+ART = "notebooks/artifacts"
 
 # Import AI detector
 try:
@@ -63,8 +63,10 @@ def load_artifacts(art_dir: str) -> Tuple[object, List[str], float, Dict[str, An
                     tau = float(line.strip().split("=", 1)[1])
                     break
         
-        # Load policy configuration
-        policy_path = os.path.join(art_dir, "policy.yaml")
+        # Load policy configuration - prefer repo policy.yaml; else use snapshot
+        policy_path = "policy.yaml"
+        if not os.path.exists(policy_path):
+            policy_path = os.path.join(art_dir, "policy.yaml")
         try:
             import yaml
             with open(policy_path, "r", encoding="utf-8") as f:
@@ -258,7 +260,7 @@ Examples:
   python cli/main.py --mode ml
         """
     )
-    ap.add_argument("--artifacts", default=ART, help="Artifacts directory (default: artifacts/)")
+    ap.add_argument("--artifacts", default=ART, help="Artifacts directory (default: notebooks/artifacts/)")
     ap.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
     ap.add_argument("--mode", choices=["ai", "ml"], help="Force detection mode (ai or ml)")
     args = ap.parse_args()
@@ -282,6 +284,8 @@ Examples:
     print()
     
     # Initialize based on selected mode
+    chatbot = None  # Initialize chatbot variable
+    
     if detection_mode == "ai":
         # AI Mode - Customer Support Chatbot
         try:
@@ -304,7 +308,14 @@ Examples:
             print(f"❌ Error initializing AI chatbot: {e}")
             sys.exit(1)
     else:
-        # ML Mode
+        # ML Mode - Initialize chatbot for response generation
+        try:
+            if AI_DETECTOR_AVAILABLE:
+                chatbot = create_customer_support_chatbot()
+        except Exception as e:
+            print(f"⚠️  Warning: Could not initialize AI chatbot: {e}")
+            print("   ML mode will work without AI responses")
+        
         model, feat_order, tau, policy = load_artifacts(args.artifacts)
         
         guards = (policy.get("guards") or {})
@@ -322,6 +333,10 @@ Examples:
         print(f"   • Features: {len(feat_order)}")
         print(f"   • Min turns before model: {min_turn_before_model}")
         print(f"   • Rule patterns: {len(ask_human + risk_terms)}")
+        if chatbot:
+            print(f"   • AI responses: Enabled (Redis: {chatbot.redis_client is not None})")
+        else:
+            print("   • AI responses: Disabled")
         print()
 
     print("💡 Type 'help' for commands, 'examples' for sample conversations")
@@ -432,7 +447,28 @@ Examples:
                         "lang": "en"
                     }
                     
-                    # Make escalation decision using ML model
+                    # Step 2: Use AI to generate response ONLY (no escalation detection)
+                    ai_response_text = ""
+                    if chatbot:
+                        try:
+                            # Generate AI response ONLY (no escalation detection)
+                            ai_response_text = chatbot.generate_response_only(user_text)
+                            
+                            # Display AI response
+                            print(f"🤖 Bot: {ai_response_text}")
+                            
+                        except Exception as ai_error:
+                            # Fallback: AI response generation failed
+                            print(f"⚠️  AI response generation failed: {ai_error}")
+                            print("   Using ML decision only...")
+                    else:
+                        # No AI chatbot available
+                        print("🤖 Bot: [AI response not available]")
+                    
+                    # Step 3: Make escalation decision using ML model with AI response
+                    # Update the event with the actual AI response
+                    event["prev_bot_text"] = ai_response_text
+                    
                     improved_tau = 0.3  # Better threshold for this small dataset
                     decision, conv_state = decide(event, conv_state, {
                         "model": model,
@@ -441,46 +477,27 @@ Examples:
                         "policy": policy
                     })
                     
-                    # Step 2: Use AI to generate response ONLY (no escalation detection)
-                    try:
-                        if not AI_DETECTOR_AVAILABLE:
-                            raise ImportError("AI detector not available")
-                        chatbot = create_customer_support_chatbot()
-                        
-                        # Generate AI response ONLY (no escalation detection)
-                        ai_response_text = chatbot.generate_response_only(user_text)
-                        
-                        # Display AI response
-                        print(f"🤖 Bot: {ai_response_text}")
-                        
-                        # Display ML escalation decision (separate from AI)
-                        if decision["escalate"]:
-                            print(f"🚨 ESCALATE ✅ (ML: {decision['reason']})")
-                            print(f"   ML Score: {decision['score']:.3f} | Threshold: {decision['threshold']:.3f}")
-                            print(f"   Where: {decision['where']} | Rules: {decision['fired_rules']}")
-                        else:
-                            print(f"✅ NO ESCALATION (ML: {decision['reason']})")
-                            print(f"   ML Score: {decision['score']:.3f} | Threshold: {decision['threshold']:.3f}")
-                            print(f"   Where: {decision['where']}")
-                        
-                        if args.verbose:
-                            print(f"   ML Features: turn={conv_state.get('user_turn_idx', 0)}, "
-                                  f"no_progress={conv_state.get('no_progress_count', 0):.1f}, "
-                                  f"bot_repeat={conv_state.get('bot_repeat_count', 0):.1f}")
-                            print(f"   ML Latency: {decision['latency_ms']}ms")
+                    # Update prev_bot_text for next turn (crucial for conversation state)
+                    prev_bot_text = ai_response_text
+                    
+                    if decision["escalate"]:
+                        print(f"🚨 ESCALATE ✅ (ML: {decision['reason']})")
+                        print(f"   ML Score: {decision['score']:.3f} | Threshold: {decision['threshold']:.3f}")
+                        print(f"   Where: {decision['where']} | Rules: {decision['fired_rules']}")
+                    else:
+                        print(f"✅ NO ESCALATION (ML: {decision['reason']})")
+                        print(f"   ML Score: {decision['score']:.3f} | Threshold: {decision['threshold']:.3f}")
+                        print(f"   Where: {decision['where']}")
+                    
+                    if args.verbose:
+                        print(f"   ML Features: turn={conv_state.get('user_turn_idx', 0)}, "
+                              f"no_progress={conv_state.get('no_progress_count', 0):.1f}, "
+                              f"bot_repeat={conv_state.get('bot_repeat_count', 0):.1f}")
+                        print(f"   ML Latency: {decision['latency_ms']}ms")
+                        if chatbot:
                             print(f"   AI: Response-only mode (no escalation detection)")
-                        
-                    except Exception as ai_error:
-                        # Fallback: AI not available, just show ML decision
-                        print(f"⚠️  AI response generation failed: {ai_error}")
-                        print("   Using ML decision only...")
-                        
-                        if decision["escalate"]:
-                            print(f"🚨 ESCALATE ✅ (ML: {decision['reason']})")
-                            print(f"   ML Score: {decision['score']:.3f} | Threshold: {decision['threshold']:.3f}")
                         else:
-                            print(f"✅ NO ESCALATION (ML: {decision['reason']})")
-                            print(f"   ML Score: {decision['score']:.3f} | Threshold: {decision['threshold']:.3f}")
+                            print(f"   AI: Not available")
                         
                 except Exception as e:
                     print(f"❌ Error during ML prediction: {e}")

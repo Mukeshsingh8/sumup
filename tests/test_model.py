@@ -19,15 +19,20 @@ class TestModelLoading:
     
     def test_load_artifacts_success(self):
         """Test successful loading of all artifacts."""
+        def mock_open_side_effect(filename, mode='r', **kwargs):
+            if 'feature_order.json' in filename:
+                return mock_open(read_data='["feature1", "feature2"]')()
+            elif 'version.txt' in filename:
+                return mock_open(read_data="model=logreg@123\nthreshold=0.081\n")()
+            else:
+                return mock_open(read_data='{"feature1": 1, "feature2": 2}')()
+        
         with patch('joblib.load') as mock_load, \
-             patch('builtins.open', mock_open(read_data='{"feature1": 1, "feature2": 2}')), \
+             patch('builtins.open', side_effect=mock_open_side_effect), \
              patch('os.path.exists', return_value=True), \
              patch('yaml.safe_load', return_value={'rules': {'test': True}}):
             
-            # Mock version.txt content
-            version_content = "model=logreg@123\nthreshold=0.081\n"
-            with patch('builtins.open', mock_open(read_data=version_content)):
-                model, features, tau, policy = load_artifacts('test_artifacts')
+            model, features, tau, policy = load_artifacts('test_artifacts')
             
             assert tau == 0.081
             assert features == ["feature1", "feature2"]
@@ -42,15 +47,23 @@ class TestModelLoading:
     
     def test_load_artifacts_fallback_policy(self):
         """Test fallback to default policy when YAML loading fails."""
+        def mock_open_side_effect(filename, mode='r', **kwargs):
+            if 'feature_order.json' in filename:
+                return mock_open(read_data='["feature1"]')()
+            elif 'version.txt' in filename:
+                return mock_open(read_data="threshold=0.5\n")()
+            else:
+                return mock_open(read_data='{"feature1": 1}')()
+        
         with patch('joblib.load'), \
-             patch('builtins.open', mock_open(read_data='{"feature1": 1}')), \
+             patch('builtins.open', side_effect=mock_open_side_effect), \
              patch('os.path.exists', return_value=True), \
              patch('yaml.safe_load', side_effect=Exception("YAML error")):
             
-            version_content = "threshold=0.5\n"
-            with patch('builtins.open', mock_open(read_data=version_content)):
-                model, features, tau, policy = load_artifacts('test_artifacts')
+            model, features, tau, policy = load_artifacts('test_artifacts')
             
+            assert tau == 0.5
+            assert features == ["feature1"]
             assert policy == {}
 
 

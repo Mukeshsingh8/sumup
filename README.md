@@ -48,7 +48,7 @@ This system offers two powerful modes for customer support escalation detection:
 ## ✨ Features
 
 ### 🤖 AI Integration
-- **Google Gemini 1.5 Flash**: State-of-the-art language model
+- **Google Gemini 2.5 Flash**: State-of-the-art language model
 - **Context-aware responses**: Maintains conversation history
 - **Intelligent escalation**: AI-powered escalation detection
 - **Redis caching**: Faster response times with intelligent caching
@@ -103,9 +103,11 @@ echo "GEMINI_API_KEY=your_api_key_here" > .env
 # Test CLI interface (choose between AI and ML modes)
 python cli/main.py
 
-# Start API server
+# Start API server (automatically uses notebooks/artifacts/)
 python -m src.service
 ```
+
+**Note**: The system automatically uses `notebooks/artifacts/` as the default artifacts directory. No manual setup required!
 
 ### 4. Example CLI Usage
 
@@ -177,7 +179,7 @@ pip install -r requirements.txt
 The CLI provides an interactive way to test both AI and ML escalation systems:
 
 ```bash
-python cli/main.py [--artifacts artifacts/] [--mode ai|ml] [--verbose]
+python cli/main.py [--artifacts notebooks/artifacts/] [--mode ai|ml] [--verbose]
 ```
 
 **Mode Selection:**
@@ -185,9 +187,6 @@ python cli/main.py [--artifacts artifacts/] [--mode ai|ml] [--verbose]
 - **ML Mode**: Hybrid system with ML escalation decisions and AI responses
 
 **Commands:**
-- `<message>` - Auto-detected as user or bot message
-- `bot: <message>` - Explicitly mark as bot response
-- `user: <message>` - Explicitly mark as user message
 - `help` - Show help message
 - `examples` - Show example conversations
 - `stats` - Show conversation statistics
@@ -507,7 +506,7 @@ sumup/
 │   └── main.py           # CLI implementation with dual modes
 ├── notebooks/             # Jupyter notebooks
 │   └── escalation_detector.ipynb  # Training notebook
-├── artifacts/             # Trained models and configs
+├── notebooks/artifacts/  # Trained models and configs
 │   ├── model.joblib      # Trained model
 │   ├── feature_order.json # Feature ordering
 │   ├── policy.yaml       # Policy configuration
@@ -555,7 +554,7 @@ rules:
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `GEMINI_API_KEY` | Google Gemini API key (required for AI mode) | None |
-| `ARTIFACTS_DIR` | Path to model artifacts | `artifacts` |
+| `ARTIFACTS_DIR` | Path to model artifacts | `notebooks/artifacts` |
 | `PORT` | API server port | `8080` |
 | `REDIS_URL` | Redis connection URL | None |
 | `REDIS_HOST` | Redis host | `localhost` |
@@ -694,40 +693,12 @@ spec:
 - Model prediction confidence
 - Error rates
 
-## 🤝 Contributing
 
-### Development Setup
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Run the test suite
-6. Submit a pull request
-
-### Code Style
-- Follow PEP 8
-- Use type hints
-- Add docstrings
-- Write tests for new features
-
-### Commit Messages
-Use conventional commits:
-- `feat:` New features
-- `fix:` Bug fixes
-- `docs:` Documentation changes
-- `test:` Test additions/changes
-- `refactor:` Code refactoring
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🆘 Support
-
-For questions or issues:
-1. Check the [Issues](https://github.com/your-repo/issues) page
-2. Create a new issue with detailed information
-3. Contact the development team
 
 ---
 

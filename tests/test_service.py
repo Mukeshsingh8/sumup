@@ -11,7 +11,11 @@ from unittest.mock import patch, MagicMock
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from service import app
+# Import with proper module path
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.service import app
 
 
 class TestService:
@@ -66,6 +70,7 @@ class TestService:
         with patch('src.service.decide') as mock_decide:
             mock_decide.return_value = ({
                 'conversation_id': 'test_conv',
+                'turn_id': None,
                 'escalate': True,
                 'where': 'model',
                 'score': 0.85,
@@ -130,6 +135,7 @@ class TestService:
         with patch('src.service.decide') as mock_decide:
             mock_decide.return_value = ({
                 'conversation_id': 'test_conv',
+                'turn_id': None,
                 'escalate': True,
                 'where': 'rules',
                 'score': 1.0,

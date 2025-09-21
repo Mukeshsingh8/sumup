@@ -19,3 +19,21 @@ rules:
       - "we could not find the information"
       - "check your spam folder"
       - "ensure your documents are clear and valid"
+      - "could you please provide"
+      - "to help me look into this"
+      - "could you please try providing"
+      - "please provide me with"
+      - "i need more information"
+      - "i'll need to verify"
+      - "could you please share"
+      - "please share the"
+      - "to help me check"
+      - "reference number"
+      - "email address associated"
+      - "email address linked"
+      - "i do need a way"
+      - "to help me look"
+  frustration_patterns:
+    enabled: true
+    patterns:
+      - "\\b(how many time|multiple times|over and over|again and again|repeatedly|frustrated|angry|fed up|ridiculous|not working|enough is enough)\\b"

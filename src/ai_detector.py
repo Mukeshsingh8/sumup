@@ -83,7 +83,7 @@ class CustomerSupportChatbot:
         
         genai.configure(api_key=self.api_key)
         # Use the correct model name for the current API version
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        self.model = genai.GenerativeModel('gemini-2.5-flash')
         
         # Initialize Redis for caching
         self.redis_client = None

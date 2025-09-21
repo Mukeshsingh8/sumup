@@ -10,7 +10,7 @@ from .model import load_artifacts
 from .policy import decide
 from .logging_config import setup_logging, log_escalation_decision, log_system_health
 
-ART_DIR = os.getenv("ARTIFACTS_DIR", "artifacts")
+ART_DIR = os.getenv("ARTIFACTS_DIR", "notebooks/artifacts")
 
 # Setup logging
 logger = setup_logging(

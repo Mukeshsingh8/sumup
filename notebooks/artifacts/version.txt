@@ -1,4 +1,4 @@
-logreg@1758452381
+logreg@1758493273
 params={'C': 0.5}
 threshold=0.0812895078611868
 test_roc_auc=0.9500

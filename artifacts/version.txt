@@ -1,8 +1,0 @@
-logreg@1758452381
-params={'C': 0.5}
-threshold=0.0812895078611868
-test_roc_auc=0.9500
-test_pr_auc=0.8333
-test_ee_first=1.0000
-test_premature_rate=1.0000
-test_tte_mean=-1.5000

@@ -38,7 +38,7 @@ def decide(event: Dict[str, Any],
     user_turn_idx = int(conv_state.get("user_turn_idx", 0))
 
     fired = check_rules(user_text, prev_bot_text, policy)
-    if "explicit_human_request" in fired or "risk_terms" in fired:
+    if "explicit_human_request" in fired or "risk_terms" in fired or "frustration_detected" in fired:
         where = "rules"
         decision = True
         score = 1.0

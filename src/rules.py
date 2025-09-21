@@ -18,4 +18,7 @@ def check_rules(user_text: str, prev_bot_text: str, policy: Dict[str, Any]) -> L
     if rules.get("bot_unhelpful_templates", {}).get("enabled", True):
         patt = rules["bot_unhelpful_templates"].get("patterns", [])
         if _has_any(patt, prev_bot_text): fired.append("bot_unhelpful_template_seen")
+    if rules.get("frustration_patterns", {}).get("enabled", False):
+        patt = rules["frustration_patterns"].get("patterns", [])
+        if _has_any(patt, user_text): fired.append("frustration_detected")
     return fired

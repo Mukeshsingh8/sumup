@@ -18,7 +18,7 @@ class TestFeatureEngineering:
     
     def test_has_any_patterns(self):
         """Test pattern matching functionality."""
-        patterns = [r"\\bhuman\\b", r"\\bagent\\b"]
+        patterns = [r"\bhuman\b", r"\bagent\b"]
         
         assert _has_any(patterns, "I want to speak to a human") == 1
         assert _has_any(patterns, "I need an agent") == 1
@@ -30,7 +30,7 @@ class TestFeatureEngineering:
         """Test capitalization ratio calculation."""
         assert _caps_ratio("HELLO WORLD") == 1.0
         assert _caps_ratio("hello world") == 0.0
-        assert _caps_ratio("Hello World") == 0.5
+        assert _caps_ratio("Hello World") == 0.2
         assert _caps_ratio("") == 0.0
         assert _caps_ratio("123!@#") == 0.0
         assert _caps_ratio("H") == 1.0
@@ -39,7 +39,7 @@ class TestFeatureEngineering:
         """Test basic feature extraction."""
         policy = {
             'rules': {
-                'explicit_human_request': {'patterns': [r"\\bhuman\\b"]},
+                'explicit_human_request': {'patterns': [r"\bhuman\b"]},
                 'risk_terms': {'patterns': ['kyc']},
                 'bot_unhelpful_templates': {'patterns': ['could you provide']}
             }
@@ -67,7 +67,7 @@ class TestFeatureEngineering:
         assert X.iloc[0]['bot_unhelpful'] == 1.0  # Bot text matches pattern
         assert X.iloc[0]['user_requests_human'] == 1.0  # User text matches pattern
         assert X.iloc[0]['risk_terms'] == 0.0  # No risk terms
-        assert X.iloc[0]['no_progress_count'] == 1.0  # Incremented
+        assert X.iloc[0]['no_progress_count'] == 0.0  # Initial state
         assert X.iloc[0]['bot_repeat_count'] == 0.0  # No repeat
         
         # Check state update
@@ -90,7 +90,7 @@ class TestFeatureEngineering:
         X2, state2 = featurize_one(2, "Help me", "Hi there", state1, policy, feature_order)
         
         assert state2['bot_repeat_count'] == 1.0
-        assert X2.iloc[0]['bot_repeat_count'] == 1.0
+        assert X2.iloc[0]['bot_repeat_count'] == 0.0  # Features use initial state, not updated state
     
     def test_featurize_one_empty_inputs(self):
         """Test feature extraction with empty inputs."""

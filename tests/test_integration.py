@@ -12,9 +12,13 @@ from unittest.mock import patch, MagicMock
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from model import load_artifacts
-from policy import decide
-from state import ConvState
+# Import with proper module path
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.model import load_artifacts
+from src.policy import decide
+from src.state import ConvState
 
 
 class TestIntegration:
